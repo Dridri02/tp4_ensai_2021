@@ -171,3 +171,13 @@ class AbstractPokemon(ABC):
     @common_attacks.setter
     def common_attacks(self, value):
         self._common_attacks = value
+
+
+    def toString(self):
+        print( "stats :")
+        print("hp : " + str(self.hp_current) )
+        print("attack : " + str(self.defense_current))
+        print("defense : " + str(self.sp_atk_current) )
+        print("sp_atk : " + str(self.sp_def_current) )
+        print("speed : " + str(self.speed_current) )
+        print( "attaques :")

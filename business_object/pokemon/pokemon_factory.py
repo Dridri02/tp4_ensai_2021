@@ -21,35 +21,7 @@ class PokemonFactory(metaclass=Singleton):
                  , speed = 0
                  , level = 0
                  , name = ""
-                 , common_attacks=None
-        """
-        Instantiate a Pokemon of the good type based on the
-        type argument. The method is pretty ugly, but it's only to
-        instantiate pokemon, so it's ok.
-
-        :param type: the type of the pokemon
-        :type type: str
-        :param hp: the hp (current and max) of the pokemon defaults to 0
-        :type hp: int, optional
-        :param attack: the attack (current and max) of the pokemon, defaults to 0
-        :type attack: int, optional
-        :param defense: the defense (current and max) of the pokemon, defaults to 0
-        :type defense: int, optional
-        :param sp_atk: the sp_atk (current and max) of the pokemon, defaults to 0
-        :type sp_atk: int, optional
-        :param sp_def: the sp_def (current and max) of the pokemon, defaults to 0
-        :type sp_def: int, optional
-        :param speed: the speed (current and max) of the pokemon, defaults to 0
-        :type speed: int, optional
-        :param level: the level of the pokemon, defaults to None
-        :type level: int, optional
-        :param name: the pokemon name, defaults to None
-        :type name: str, optional
-        :param common_attacks: the list of the pokemon's attack, defaults to []
-        :type common_attacks: list, optional
-        :raises Exception: if the type is unknown, an exception is raised
-        """
-
+                 , common_attacks=None):
         if type=="Supporter" :
             pokemon = SupporterPokemon(
                 stat_max=Statistic(

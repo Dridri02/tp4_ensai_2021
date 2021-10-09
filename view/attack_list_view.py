@@ -9,26 +9,25 @@ from PyInquirer import prompt, Separator
 
 from prompt_toolkit.validation import Validator, ValidationError
 from view.abstract_view import AbstractView
-from view.pokemon_details_view import PokemonDetailsView
+from view.attack_details import A
 from view.session import Session
-from client.pokemon_client import PokemonClient
+from client.attack_client import AttackClient
 
 
-
-class PokemonListView(AbstractView):
+class AttackListView(AbstractView):
     def __init__(self):
-        client = PokemonClient()
-        pokemons = client.get_all_pokemon(limit=30)
-        nomsPokemons =[]
-        for pokemon in pokemons:
-            nomsPokemons.append({'name' : pokemon.name, 'id':pokemon.id})
+        client = AttackClient()
+        attaques = client.get_all_attack(limit=30)
+        nomsAttaques =[]
+        for attaque in attaques:
+            nomsAttaques.append({'name' : attaque.name})
         self.__questions = [
             {
-                'type': 'list',
+                'type': 'checkbox',
                 'qmark': '🐹',
                 'message': 'Select your Pokemon Team',
                 'name': 'pokemons',
-                'choices': nomsPokemons,
+                'choices': nomsAttaques,
             }
         ]
 
@@ -38,8 +37,8 @@ class PokemonListView(AbstractView):
     def make_choice(self):
         answers = prompt(self.__questions)
         pprint(answers)
-        if answers['pokemons']:
-            pokemonSelect = list(filter(lambda q: q['name']==answers['pokemons'], self.__questions[0]['choices']))[0]
-            return PokemonDetailsView(pokemonSelect['id'])
+        from view.start_view import StartView
+        if reponse['choix']:
+            return StartView()
         
 

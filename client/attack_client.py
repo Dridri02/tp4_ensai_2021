@@ -10,7 +10,7 @@ END_POINT="/attack"
 class AttackClient(metaclass= Singleton):
 
     def __init__(self) -> None:
-        self.__HOST =os.environ["HOST_WEBSERVICE"]
+        self.__HOST ='http://web-services.domensai.ecole'
 
     def get_attack(self, id:int) -> Optional[AbstractAttack] :
         """
