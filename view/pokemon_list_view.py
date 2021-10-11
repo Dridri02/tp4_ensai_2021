@@ -26,7 +26,7 @@ class PokemonListView(AbstractView):
             {
                 'type': 'list',
                 'qmark': '🐹',
-                'message': 'Select your Pokemon Team',
+                'message': 'Select the pokemon you want to see more detailed',
                 'name': 'pokemons',
                 'choices': nomsPokemons,
             }

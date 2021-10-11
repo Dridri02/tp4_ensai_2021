@@ -181,3 +181,5 @@ class AbstractPokemon(ABC):
         print("sp_atk : " + str(self.sp_def_current) )
         print("speed : " + str(self.speed_current) )
         print( "attaques :")
+        for attaque in self._common_attacks:
+            print(attaque.name)

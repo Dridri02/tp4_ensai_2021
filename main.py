@@ -1,5 +1,5 @@
 #pip install Pyinquirer
-#depuis la racine lancer python -m view.test
+#depuis la racine lancer python -m main
 from view.start_view import StartView
 
 # This script is the entry point of your application

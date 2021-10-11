@@ -9,7 +9,7 @@ from PyInquirer import prompt, Separator
 
 from prompt_toolkit.validation import Validator, ValidationError
 from view.abstract_view import AbstractView
-from view.attack_details import A
+from view.attack_details import AttackDetailsView
 from view.session import Session
 from client.attack_client import AttackClient
 
@@ -20,13 +20,13 @@ class AttackListView(AbstractView):
         attaques = client.get_all_attack(limit=30)
         nomsAttaques =[]
         for attaque in attaques:
-            nomsAttaques.append({'name' : attaque.name})
+            nomsAttaques.append({'name' : attaque.name, 'id':attaque.id})
         self.__questions = [
             {
-                'type': 'checkbox',
+                'type': 'list',
                 'qmark': '🐹',
-                'message': 'Select your Pokemon Team',
-                'name': 'pokemons',
+                'message': 'Select the attack you want to see more detailed',
+                'name': 'attacks',
                 'choices': nomsAttaques,
             }
         ]
@@ -38,7 +38,8 @@ class AttackListView(AbstractView):
         answers = prompt(self.__questions)
         pprint(answers)
         from view.start_view import StartView
-        if reponse['choix']:
-            return StartView()
+        if answers['attacks']:
+            attackSelected = list(filter(lambda q: q['name']==answers['attacks'], self.__questions[0]['choices']))[0]
+            return AttackDetailsView(attackSelected['id'])
         
 
