@@ -1,5 +1,5 @@
-#pip install Pyinquirer
-#depuis la racine lancer python -m main
+
+# lancer dans un terminal qui est à la racine de l'application la commande python -m main
 
 from view.start_view import StartView
 
