@@ -16,7 +16,7 @@ class StartView(AbstractView):
                     'Next'
                     , 'Pokemon List'
                     , 'Attack List'
-                    , 'Sign In example'
+                    , 'Create Pokemon'
 
                 ]
             }
@@ -35,8 +35,8 @@ class StartView(AbstractView):
         elif reponse['choix'] == 'Attack List':
             from view.attack_list_view import AttackListView
             return AttackListView()
-        elif reponse['choix'] == 'Sign In example':
-            from view.sign_in_example import SignInExample
-            return SignInExample()
+        elif reponse['choix'] == 'Create Pokemon':
+            from view.create_pokemon_view import CreatePokemonView
+            return CreatePokemonView()
 
 

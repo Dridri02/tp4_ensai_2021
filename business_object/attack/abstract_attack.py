@@ -55,7 +55,6 @@ class AbstractAttack(ABC):
         return self._TYPE_NAME
 
     def toString(self):
-        print("attaques : ")
         print (self.name + " : " + self.description)
         print ("power : " + str(self.power))
         print ("accuracy : " + str(self.accuracy))

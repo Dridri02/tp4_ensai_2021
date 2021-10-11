@@ -174,12 +174,14 @@ class AbstractPokemon(ABC):
 
 
     def toString(self):
+        print("name :" +str(self.name))
         print( "stats :")
         print("hp : " + str(self.hp_current) )
         print("attack : " + str(self.defense_current))
         print("defense : " + str(self.sp_atk_current) )
         print("sp_atk : " + str(self.sp_def_current) )
         print("speed : " + str(self.speed_current) )
-        print( "attaques :")
-        for attaque in self._common_attacks:
-            print(attaque.name)
+        if self._common_attacks !=None:
+            print( "attaques :")
+            for attaque in self._common_attacks:
+                print(attaque.name)

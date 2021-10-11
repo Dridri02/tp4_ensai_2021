@@ -14,7 +14,6 @@ class PokemonDetailsView(AbstractView):
                 'message': 'Bonjour '+str(Session().user_name),
                 'choices': [
                      'Pokemon List'
-                    , 'Attack List'
                     , 'Go back to start menu'
 
                 ]
@@ -31,9 +30,6 @@ class PokemonDetailsView(AbstractView):
         if reponse['choix'] == 'Pokemon List':
             from view.pokemon_list_view import PokemonListView
             return PokemonListView()
-        elif reponse['choix'] == 'Attack List':
-            from view.attack_list_view import AttackListView
-            return AttackListView()
         elif reponse['choix'] == 'Go back to start menu':
             from view.start_view import StartView
             return StartView()
