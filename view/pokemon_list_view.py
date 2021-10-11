@@ -11,14 +11,12 @@ from prompt_toolkit.validation import Validator, ValidationError
 from view.abstract_view import AbstractView
 from view.pokemon_details_view import PokemonDetailsView
 from view.session import Session
-from client.pokemon_client import PokemonClient
-
+from services.pokemon_service import PokemonService
 
 
 class PokemonListView(AbstractView):
     def __init__(self):
-        client = PokemonClient()
-        pokemons = client.get_all_pokemon(limit=30)
+        pokemons = PokemonService().get_pokemon_from_webservice(limit=30)
         nomsPokemons =[]
         for pokemon in pokemons:
             nomsPokemons.append({'name' : pokemon.name, 'id':pokemon.id})

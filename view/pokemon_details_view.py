@@ -2,8 +2,7 @@ from PyInquirer import Separator, prompt
 
 from view.abstract_view import AbstractView
 from view.session import Session
-from client.pokemon_client import PokemonClient
-
+from services.pokemon_service import PokemonService
 
 class PokemonDetailsView(AbstractView):
     def __init__(self, idPokemon):
@@ -19,10 +18,10 @@ class PokemonDetailsView(AbstractView):
                 ]
             }
         ]
-        client = PokemonClient()
-        self.__pokemon = client.get_pokemon(idPokemon)
+        self.__pokemon = PokemonService().get_pokemon_with_identifier_from_webservice(idPokemon)
 
     def display_info(self):
+        print("Description du pokemon choisi : ")
         self.__pokemon.toString()
 
     def make_choice(self):

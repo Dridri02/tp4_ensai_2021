@@ -2,8 +2,7 @@ from PyInquirer import Separator, prompt
 
 from view.abstract_view import AbstractView
 from view.session import Session
-from client.attack_client import AttackClient
-
+from services.attack_service import AttackService
 
 class AttackDetailsView(AbstractView):
     def __init__(self, idAttaque):
@@ -19,8 +18,7 @@ class AttackDetailsView(AbstractView):
                 ]
             }
         ]
-        client = AttackClient()
-        self.__attack = client.get_attack(idAttaque)
+        self.__attack = AttackService().get_attack_with_identifier_from_webservice(idAttaque)
 
     def display_info(self):
         self.__attack.toString()

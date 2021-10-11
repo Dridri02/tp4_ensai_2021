@@ -9,15 +9,14 @@ from PyInquirer import prompt, Separator
 
 from prompt_toolkit.validation import Validator, ValidationError
 from view.abstract_view import AbstractView
-from view.attack_details import AttackDetailsView
+from view.attack_details_view import AttackDetailsView
 from view.session import Session
-from client.attack_client import AttackClient
+from services.attack_service import AttackService
 
 
 class AttackListView(AbstractView):
     def __init__(self):
-        client = AttackClient()
-        attaques = client.get_all_attack(limit=30)
+        attaques = AttackService().get_attacks_from_webservice(limit=30)
         nomsAttaques =[]
         for attaque in attaques:
             nomsAttaques.append({'name' : attaque.name, 'id':attaque.id})

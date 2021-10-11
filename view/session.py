@@ -10,7 +10,7 @@ class Session(metaclass=Singleton):
         ref:type = valeur
         permet de donner le type des variables. Utile pour l'autocompletion.
         """
-        self.user_name = "Il faut me renseigner dans la classe Session"
+        self.user_name = "Adrien car marqué en dur dans la classe session mais ca pourrait être complété dans un écran d'accueil"
         self.user_mdp = None
         self.listePokemons = []
         self.listeAttaques = []
